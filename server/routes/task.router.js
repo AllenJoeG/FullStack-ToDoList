@@ -38,6 +38,24 @@ router.get('/', (req, res) => {
 
 
 //DELETE ROUTE
+router.delete('/:id', (req, res) => {
+  console.log('in /tasks/:id DELETE route', req.params);
+  const taskIdToDelete = req.params.id;
+  const sqlValues = [taskIdToDelete];
+  const sqlText = `
+    DELETE FROM "tasks"
+      WHERE "id"=$1;
+  `;
+  //Query the DB with above instructions
+  pool.query(sqlText, sqlValues)
+  .then((dbResult) => {
+    console.log('Delete confirmed:', req.params.id)
+    res.sendStatus(200);
+  }).catch((dbErr) => {
+    console.error('issue hitting DB', dbErr);
+    res.sendStatus(500);
+  });
+});
 
 
 

@@ -45,7 +45,7 @@ function renderTasks(dbRows){
         <td>${task.notes}</td>
         <td>${task.inProgress}</td>
         <td>${task.isComplete}</td>
-        <td><button class="readButton" data-id="${task.id}">Read It!</button></td>
+        <td><button class="readButton" data-id="${task.id}">DONE</button></td>
         <td><button class="deleteButton" data-id="${task.id}">Delete</button></td>
       </tr>
     `);
@@ -69,5 +69,14 @@ function markComplete(){
 
 //DELETE ROUTE
 function deleteTask(){
-  //AJAX and capture ID
+  const taskIdToDelete = $(this).data('id');
+  $.ajax({
+    type: 'DELETE',
+    url: `/tasks/${taskIdToDelete}`
+  }).then((response) => {
+    console.log(response);
+    getTasksAndRender();
+  }).catch((error) => {
+    console.log('Unable to delete Task, why? :', error);
+  });
 }
