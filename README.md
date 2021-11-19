@@ -15,7 +15,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [ ] Rought Draft HTML layout
 [ ] Wire up All the Files 
 [ ]   HTML/jquery/client/css, 👍
-[ ]   server/express, 
+[ ]   server/express, 👍
 [ ]   client/jquery, 👍
 [ ]   pool.js/DB
 [ ] Database planning // table structure
@@ -23,7 +23,8 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [ ] Plan routes and create router.js file(s)
 [ ] placeholder CRUD routes
 [ ]
-[ ]
-[ ]
+  - FEATURES
+[ ] User Input fields for Task
+[ ] POST route for Task - store in DB, re-render DOM
 [ ]
 [ ]
