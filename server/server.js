@@ -1,6 +1,6 @@
 //Requirements
 const express = require('express');
-// const TBDRouter = require('./routes/TBD.js');
+const taskRouter = require('./routes/task.router.js');
 
 //Aliases
 const PORT = process.env.PORT || 5000;
@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('server/public'))
 
 //Routes
-
+app.use('/tasks', taskRouter);
 
 //Main Screen Turn On
 app.listen(PORT, () => {
