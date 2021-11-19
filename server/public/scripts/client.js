@@ -1,10 +1,12 @@
 $(document).ready(function(){
   console.log('jQuery: SCV Ready')
   getTasksAndRender();
+  loadClickListeners();
 });
 
+//HELPER Function that loads button functionality
 function loadClickListeners() {
-  
+  $(document).on('click', '#submitButton', packageUserInputs)
   //listeners for buttons
 };
 
@@ -79,15 +81,17 @@ function packageUserInputs(){
   } else if ($('#taskIn').val() === '' || $('#detailsIn').val() === ''){
     return;
   } else {
-  let task = {};
-  task.task = $('#taskIn').val();
-  task.details = $('#detailsIn').val();
-  task.due = $('#dueIn').val();
-  task.notes = $('#notesIn').val();
-  submitTaskInformation(task);
-  //Reset redborders on successful submit
-  $('#taskIn').css("border", "1px solid black");
-  $('#detailsIn').css("border", "1px solid black");
+    //if two required fields aren't empty, pack it up!
+    let task = {};
+    task.task = $('#taskIn').val();
+    task.details = $('#detailsIn').val();
+    task.due = $('#dueIn').val();
+    task.notes = $('#notesIn').val();
+    submitTaskInformation(task);
+    //Reset redborders on successful submit
+    $('#taskIn').css("border", "1px solid black");
+    $('#detailsIn').css("border", "1px solid black");
+  };
 };
 
 
@@ -113,4 +117,4 @@ function deleteTask(){
   }).catch((error) => {
     console.log('Unable to delete Task, why? :', error);
   });
-}
+};

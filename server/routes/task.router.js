@@ -21,13 +21,31 @@ router.get('/', (req, res) => {
 
 
 //POST ROUTE
-// router.post('/tasks', (req, res) => {
+router.post('/',  (req, res) => {
+  let newTask = req.body;
+  console.log(`Adding task`, newTask);
+  const queryValues = [
+    newTask.task,
+    newTask.details,
+    newTask.due,
+    newTask.notes
+  ];
 
-// }).then((dbResponse) => {
-
-// }).catch((dbErr) => {
-
-// });
+  const queryText = `
+    INSERT INTO "tasks" 
+      ("task", "details", "due", "notes", "inProgress", "isComplete") 
+    VALUES 
+      ($1, $2, $3, $4, false, false);
+    `;
+  pool.query(queryText, queryValues)
+    .then(result => {
+      res.sendStatus(201);
+    })
+    .catch(error => {
+      console.log(`Error adding new book`, error);
+      res.sendStatus(500);
+    });
+});
 
 
 //PUT ROUTE - progress
