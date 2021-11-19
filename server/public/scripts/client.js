@@ -45,8 +45,8 @@ function renderTasks(dbRows){
         <td>${task.notes}</td>
         <td>${task.inProgress}</td>
         <td>${task.isComplete}</td>
-        <td><button class="doneButton" data-id="${task.id}">DONE</button></td>
-        <td><button class="deleteButton" data-id="${task.id}">Delete</button></td>
+        <td><button class="btn btn-outline-success" class="doneButton" data-id="${task.id}">DONE</button></td>
+        <td><button class="btn btn-outline-danger" class="deleteButton" data-id="${task.id}">Delete</button></td>
       </tr>
     `);
 
