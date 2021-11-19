@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('server/public'))
 
-
+//Routes
 
 
 //Main Screen Turn On
