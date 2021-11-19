@@ -51,8 +51,26 @@ router.post('/',  (req, res) => {
 //PUT ROUTE - progress
 
 
-
 //PUT ROUTE - completion
+router.put('/:id', (req, res) => {
+  const taskIdToUpdate = req.params.id;
+  
+  const sqlValues = [taskIdToUpdate]
+  const sqlText = `
+    UPDATE "tasks"
+      SET "isComplete" = true
+      WHERE "id"=$1;
+  `;
+  
+  pool.query(sqlText, sqlValues)
+    .then((dbResult) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.error(dbErr);
+      res.sendStatus(500);
+    })
+});
 
 
 //DELETE ROUTE

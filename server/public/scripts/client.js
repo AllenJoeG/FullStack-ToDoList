@@ -6,13 +6,11 @@ $(document).ready(function(){
 
 //HELPER Function that loads button functionality
 function loadClickListeners() {
-  $(document).on('click', '#submitButton', packageUserInputs)
+  $(document).on('click', '#submitButton', packageUserInputs);
+  $(document).on('click', '.deleteButton', deleteTask);
+  $(document).on('click', '.doneButton', markComplete);
   //listeners for buttons
 };
-
-// function renderToDom(dbRows){
-  
-// };
 
 //GET ROUTE
 function getTasksAndRender(){
@@ -40,17 +38,22 @@ function renderTasks(dbRows){
     
     // For each task, append a new row to our table
     $('#taskList').append(`
-      <tr>
+      <tr id=${task.id}>
         <td>${task.task}</td>
         <td>${task.details}</td>
         <td>${task.due}</td>
         <td>${task.notes}</td>
         <td>${task.inProgress}</td>
         <td>${task.isComplete}</td>
-        <td><button class="readButton" data-id="${task.id}">DONE</button></td>
+        <td><button class="doneButton" data-id="${task.id}">DONE</button></td>
         <td><button class="deleteButton" data-id="${task.id}">Delete</button></td>
       </tr>
     `);
+
+    if (task.isComplete){
+      let tableRow = `#${task.id}`
+      $(tableRow).css("background-color", "green");
+    }
   }
 }
 
@@ -103,6 +106,16 @@ function markInProgress(){
 //PUT ROUTE
 function markComplete(){
   //AJAX and capture ID
+  const taskIdToMark = $(this).data('id');
+
+  $.ajax({
+    type: 'PUT',
+    url: `/tasks/${taskIdToMark}`
+  }).then((res) => {
+    getTasksAndRender();
+  }).catch((err) => {
+    console.error(err);
+  });
 }
 
 //DELETE ROUTE
