@@ -27,7 +27,7 @@ function getTasksAndRender(){
   });
   
 };
-
+//HELPER function for getTasksAndRender()
 function renderTasks(dbRows){  
   $('#taskList').empty();
 // let bookRead = 'Not Read!'
@@ -53,9 +53,43 @@ function renderTasks(dbRows){
 }
 
 //POST ROUTE
-function submitTaskInformation(){
+function submitTaskInformation(taskObject){
   //package up and send newTaskObject to server for database
+  $.ajax({
+    type: 'POST',
+    url: '/tasks',
+    data: taskObject,
+    }).then(function(response) {
+      console.log('Response from server.', response);
+      getTasksAndRender();
+    }).catch(function(error) {
+      console.log('Error in POST', error)
+      alert('Unable to add task at this time. Please try again later.');
+    });
 };
+//HELPER function for packaging user inputs into data object
+function packageUserInputs(){
+  console.log('Submit button clicked.');
+
+  //Conditional require both fields
+  if ($('#taskIn').val() === '') {
+    $('#taskIn').css("border", "3px solid red");
+  } else if ($('#detailsIn').val() === ''){
+    $('#detailsIn').css("border", "3px solid red");
+  } else if ($('#taskIn').val() === '' || $('#detailsIn').val() === ''){
+    return;
+  } else {
+  let task = {};
+  task.task = $('#taskIn').val();
+  task.details = $('#detailsIn').val();
+  task.due = $('#dueIn').val();
+  task.notes = $('#notesIn').val();
+  submitTaskInformation(task);
+  //Reset redborders on successful submit
+  $('#taskIn').css("border", "1px solid black");
+  $('#detailsIn').css("border", "1px solid black");
+};
+
 
 //PUT ROUTE
 function markInProgress(){
