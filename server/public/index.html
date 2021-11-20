@@ -11,6 +11,11 @@
   <title>The Protean Sisyphean</title>
 </head>
 <body id="bodyOverrideBootstrap">
+
+  <div id="titleDiv" class="container">
+    <h2>The Protean Sisyphean</h2>
+    <h5>A CRUDdy way to keep track of your life.</h5>
+  </div>
   
   <!-- NON Bootstrap input area -->
   <!-- <div class="container-fluid">
@@ -23,10 +28,11 @@
   </div> -->
 
 <!-- Testing BOOTSTRAP input area -->
-  <div class="input-group" class="container-fluid">
-    <input id="taskIn" placeholder="Task (64 char)">
-    <input id="dueIn" placeholder="Due Date">
-  <br>
+  <div class="container-fluid input-group">
+    <!-- <input id="taskIn" placeholder="Task (64 char)"> -->
+    <input id = "taskIn" type="text" class="form-control" placeholder="Task (64 char)">
+    <span class="input-group-text">Due:</span>
+    <input id="dueIn" type="date" class="form-control" >
     <textarea id="detailsIn" placeholder="Details (255 char)" class="form-control" aria-label="With textarea"></textarea>
     
     <textarea id="notesIn" placeholder="Notes (255 char)" class="form-control" aria-label="With textarea"></textarea>
@@ -34,11 +40,11 @@
   </div>
 
   
-  <div class = "taskTableDiv" class="container-fluid">
+  <div id="taskTableDiv" class="container-fluid">
     <!-- <h3>Task List</h3> -->
-    <table class="table table-dark table-striped">
+    <table id="tableOverrideBootstrap" class="table table-dark table-striped">
       <thead>
-        <tr>
+        <tr id="trOverrideBootstrap">
           <th>Task</th>
           <th>Details</th>
           <th>Due</th>
