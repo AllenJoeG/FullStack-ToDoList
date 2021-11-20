@@ -7,34 +7,59 @@
   <script src="./vendors/jquery.js"></script>
   <script src="./scripts/client.js"></script>
   <link rel="stylesheet" href="./styles/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <title>The Protean Sisyphean</title>
 </head>
-<body>
-  <h3>Boulders roll uphill both ways</h3>
-  <div>
+<body id="bodyOverrideBootstrap">
+
+  <div id="titleDiv" class="container">
+    <h2>The Protean Sisyphean</h2>
+    <h5>A CRUDdy way to keep track of your life.</h5>
+  </div>
+  
+  <!-- NON Bootstrap input area -->
+  <!-- <div class="container-fluid">
+    <h3>Boulders roll uphill both ways</h3>
     <input id="taskIn" placeholder="Task (64 char)">
     <input id="detailsIn" placeholder="Details (255 char)">
     <input id="dueIn" placeholder="Due Date">
     <input id="notesIn" placeholder="Notes (255 char)">
-    <button id="submitButton">Submit</button>
+    <button class="btn btn-primary" id="submitButton">Submit</button>
+  </div> -->
+
+<!-- Testing BOOTSTRAP input area -->
+  <div class="container-fluid input-group">
+    <!-- <input id="taskIn" placeholder="Task (64 char)"> -->
+    <input id = "taskIn" type="text" class="form-control" placeholder="Task (64 char)">
+    <span class="input-group-text">Due:</span>
+    <input id="dueIn" type="date" class="form-control" >
+    <textarea id="detailsIn" placeholder="Details (255 char)" class="form-control" aria-label="With textarea"></textarea>
+    
+    <textarea id="notesIn" placeholder="Notes (255 char)" class="form-control" aria-label="With textarea"></textarea>
+    <button class="btn btn-primary" id="submitButton">Submit</button>
   </div>
+
   
-  <div>
-    <h3>Task List</h3>
-    <table>
+  <div id="taskTableDiv" class="container-fluid">
+    <!-- <h3>Task List</h3> -->
+    <table id="tableOverrideBootstrap" class="table table-dark table-striped">
       <thead>
-        <tr>
+        <tr id="trOverrideBootstrap">
           <th>Task</th>
           <th>Details</th>
           <th>Due</th>
           <th>Notes</th>
-          <th>Progress</th>
-          <th>Status</th>
+          <th>Started?</th>
+          <th>Done?</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody id="taskList">
       </tbody>
     </table>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

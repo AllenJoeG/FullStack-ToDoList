@@ -1,3 +1,50 @@
-body {
+#bodyOverrideBootstrap {
   background-color:thistle;
+}
+
+@font-face {
+  font-family: Kaushan-Script;
+  src: url(https://fonts.gstatic.com/s/kaushanscript/v9/vm8vdRfvXFLG3OLnsO15WYS5DG74wNJVMJ8b.woff2);
+}
+
+#titleDiv {
+  background-color: rgb(44, 44, 44);
+  color: thistle;
+  border-radius: 4px;
+}
+
+#titleDiv h2 {
+  font-family: Kaushan-Script;
+}
+
+#taskTableDiv {
+  margin-top: 10px;
+}
+
+#tableOverrideBootstrap {
+  /* border-radius: 4px; */
+}
+
+table th {
+  color:thistle;
+}
+
+table th:first-child {
+  border-top-left-radius: 4px;
+}
+
+table th:last-child {
+  border-top-right-radius: 4px;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+table td {
+  color: thistle;
 }

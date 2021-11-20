@@ -29,10 +29,14 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [ ] (C)  POST route for Task - store in DB 👍
 [ ] Render Tasks to DOM // Update/refresh 👍
 [ ] (R)  GET route for Tasks - append to DOM 👍
-[ ] Task COMPLETE button
-[ ] (U)  PUT route for task update
+[ ] Task COMPLETE button 👍
+[ ] (U)  PUT route for task update 👍
 [ ] Task DELETE button 👍
 [ ] (D)  DELETE route for task 👍
 [ ]
 [ ] Completed Tasks should be visually distinct
-[ ]   CSS       Second Div?
+[ ]   CSS   👍    Second Div?  ()
+
+- Stretch Goals
+  Explore Object destructuring for edit PUT route
+  
