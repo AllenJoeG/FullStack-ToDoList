@@ -2,10 +2,19 @@
   background-color:thistle;
 }
 
+@font-face {
+  font-family: Kaushan-Script;
+  src: url(https://fonts.gstatic.com/s/kaushanscript/v9/vm8vdRfvXFLG3OLnsO15WYS5DG74wNJVMJ8b.woff2);
+}
+
 #titleDiv {
   background-color: rgb(44, 44, 44);
   color: thistle;
   border-radius: 4px;
+}
+
+#titleDiv h2 {
+  font-family: Kaushan-Script;
 }
 
 #taskTableDiv {
