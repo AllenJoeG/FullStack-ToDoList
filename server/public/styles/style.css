@@ -1,3 +1,7 @@
 #bodyOverrideBootstrap {
   background-color:thistle;
 }
+
+.taskTableDiv {
+  margin-top: 10px;
+}

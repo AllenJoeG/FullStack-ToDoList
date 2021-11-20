@@ -13,25 +13,29 @@
 <body id="bodyOverrideBootstrap">
   
   <!-- NON Bootstrap input area -->
-  <div class="container-fluid">
+  <!-- <div class="container-fluid">
     <h3>Boulders roll uphill both ways</h3>
     <input id="taskIn" placeholder="Task (64 char)">
     <input id="detailsIn" placeholder="Details (255 char)">
     <input id="dueIn" placeholder="Due Date">
     <input id="notesIn" placeholder="Notes (255 char)">
     <button class="btn btn-primary" id="submitButton">Submit</button>
-  </div>
+  </div> -->
 
 <!-- Testing BOOTSTRAP input area -->
-  <div class="input-group">
-    <span class="input-group-text">Details (255 char)</span>
-    <textarea id="detailsIn" class="form-control" aria-label="With textarea"></textarea>
+  <div class="input-group" class="container-fluid">
+    <input id="taskIn" placeholder="Task (64 char)">
+    <input id="dueIn" placeholder="Due Date">
+  <br>
+    <textarea id="detailsIn" placeholder="Details (255 char)" class="form-control" aria-label="With textarea"></textarea>
+    
     <textarea id="notesIn" placeholder="Notes (255 char)" class="form-control" aria-label="With textarea"></textarea>
+    <button class="btn btn-primary" id="submitButton">Submit</button>
   </div>
 
   
-  <div class="container-fluid">
-    <h3>Task List</h3>
+  <div class = "taskTableDiv" class="container-fluid">
+    <!-- <h3>Task List</h3> -->
     <table class="table table-dark table-striped">
       <thead>
         <tr>
@@ -39,8 +43,8 @@
           <th>Details</th>
           <th>Due</th>
           <th>Notes</th>
-          <th>Progress</th>
-          <th>Status</th>
+          <th>Started?</th>
+          <th>Done?</th>
           <th></th>
           <th></th>
         </tr>

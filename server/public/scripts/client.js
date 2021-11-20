@@ -35,18 +35,18 @@ function renderTasks(dbRows){
 //select element, loop through dbRows, append
   for(let i = 0; i < dbRows.length; i += 1) {
     let task = dbRows[i];
-    
+    let dateSlice = task.due.slice(0, 10);
     // For each task, append a new row to our table
     $('#taskList').append(`
-      <tr id=${task.id}>
+      <tr id="${task.id}">
         <td>${task.task}</td>
         <td>${task.details}</td>
-        <td>${task.due}</td>
+        <td>${dateSlice}</td>
         <td>${task.notes}</td>
         <td>${task.inProgress}</td>
         <td>${task.isComplete}</td>
-        <td><button class="btn btn-outline-success" class="doneButton" data-id="${task.id}">DONE</button></td>
-        <td><button class="btn btn-outline-danger" class="deleteButton" data-id="${task.id}">Delete</button></td>
+        <td><button class="btn btn-outline-success doneButton" data-id="${task.id}">DONE</button></td>
+        <td><button class="btn btn-outline-danger deleteButton" data-id="${task.id}">Delete</button></td>
       </tr>
     `);
 
@@ -107,7 +107,7 @@ function markInProgress(){
 function markComplete(){
   //AJAX and capture ID
   const taskIdToMark = $(this).data('id');
-
+  console.log('in markComplete()')
   $.ajax({
     type: 'PUT',
     url: `/tasks/${taskIdToMark}`
