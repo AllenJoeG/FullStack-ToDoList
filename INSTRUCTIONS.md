@@ -44,7 +44,7 @@ Please include a `database.sql` text file in your repo that includes all of your
 
 For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
 
-- `feature-styling-bootstrap` 
+- `feature-styling-bootstrap` 👍
 
     - [ ]  Add Bootstrap to the front end and style it up!
       -  Buttons -- make the creation buttons and completion buttons green and the delete red.
